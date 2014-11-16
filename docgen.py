@@ -51,7 +51,15 @@ def get_page_content(url):
     idx = html_doc.find('<div id="docgen-start"></div>')
     end = html_doc.find('<div id="docgen-end"></div>', idx)
     content = html_doc[idx+len('<div id="docgen-start"></div>'):end]
-    return "<h1>"+page_title+"</h1>\n" + content
+
+    # update images src
+    soup = BeautifulSoup(content)
+    url_parts = url.split('/')
+    url_path = '/'.join(url_parts[:-1])
+    for img in soup.findAll('img'):
+        img['src'] = url_path + '/' + img['src']
+
+    return "<h1>"+page_title+"</h1>\n" + soup.prettify()
 
 def to_bytes(data, encoding="UTF-8"):
     """
@@ -100,7 +108,7 @@ def main():
     p6 = get_page_content('http://cohorte.github.io/docs/1.x/shell/index.html')
     p7 = get_page_content('http://cohorte.github.io/docs/1.x/monitoring/index.html')
     p8 = get_page_content('http://cohorte.github.io/docs/1.x/ide/index.html')
-
+    
     r_final = requests.get("http://cohorte.github.io/docs/1.x/cohorte-refguide-1.x.html")
     html_doc_final = r_final.text
     
