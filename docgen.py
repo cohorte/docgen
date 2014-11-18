@@ -102,12 +102,13 @@ def main():
 
     p1 = get_page_content('http://cohorte.github.io/docs/1.x/what-is-cohorte/index.html')
     p2 = get_page_content('http://cohorte.github.io/docs/1.x/key-concepts/index.html')
-    p3 = get_page_content('http://cohorte.github.io/docs/1.x/components/index.html')
-    p4 = get_page_content('http://cohorte.github.io/docs/1.x/compositions/index.html')
-    p5 = get_page_content('http://cohorte.github.io/docs/1.x/startup/index.html')
-    p6 = get_page_content('http://cohorte.github.io/docs/1.x/shell/index.html')
-    p7 = get_page_content('http://cohorte.github.io/docs/1.x/monitoring/index.html')
-    p8 = get_page_content('http://cohorte.github.io/docs/1.x/ide/index.html')
+    p3 = get_page_content('http://cohorte.github.io/docs/1.x/setup/index.html')
+    p4 = get_page_content('http://cohorte.github.io/docs/1.x/components/index.html')
+    p5 = get_page_content('http://cohorte.github.io/docs/1.x/compositions/index.html')
+    p6 = get_page_content('http://cohorte.github.io/docs/1.x/startup/index.html')
+    p7 = get_page_content('http://cohorte.github.io/docs/1.x/shell/index.html')
+    p8 = get_page_content('http://cohorte.github.io/docs/1.x/monitoring/index.html')
+    #p8 = get_page_content('http://cohorte.github.io/docs/1.x/ide/index.html')
     
     r_final = requests.get("http://cohorte.github.io/docs/1.x/cohorte-refguide-1.x.html")
     html_doc_final = r_final.text
